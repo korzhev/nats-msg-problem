@@ -66,7 +66,7 @@ export abstract class FeedParserPublisher<T, K> {
     this.replySubject = `${name}.reply.${replySuffix}.${this.uuid}`
     this.timestamp = +new Date()
     this.name = name
-    this.subscriptionOptions = sc.subscriptionOptions().setDeliverAllAvailable().setMaxInFlight(1)
+    this.subscriptionOptions = sc.subscriptionOptions().setDeliverAllAvailable()
     this.subscription = this.sc.subscribe(
       this.replySubject,
       this.subscriptionOptions

@@ -27,7 +27,7 @@ export abstract class FeedParserSubscriber<T, K> {
     this.name = name
     this.sc = sc
     this.ee = new events.EventEmitter()
-    this.subscriptionOptions = sc.subscriptionOptions().setStartWithLastReceived().setMaxInFlight(1)
+    this.subscriptionOptions = sc.subscriptionOptions().setStartWithLastReceived()
     this.subscription = this.sc.subscribe(
       `${this.name}.publisher`,
       this.name, // queue group
